@@ -1,10 +1,9 @@
+
 /**
  * Pree Thiengburanathum
  * SE201 Algorithm Design and Analysis
  * BreakingEq.java
  */
-package BreakingEq;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -113,23 +112,22 @@ public class LinearEquationSolver {
 
     // Method to read integers from input.txt and populate set A
     public static void readInputFile(String filename) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(filename));
-
         // Read the size of A
-        int size = scanner.nextInt();
-
-        // Read c1 and c2
-        c1 = scanner.nextInt();
-        c2 = scanner.nextInt();
-
-        // Read the elements of array A
-        A = new int[size];
-        for (int i = 0; i < size; i++) {
-            if (scanner.hasNextInt()) {
-                A[i] = scanner.nextInt();
+        try (Scanner scanner = new Scanner(new File(filename))) {
+            // Read the size of A
+            int size = scanner.nextInt();
+            
+            // Read c1 and c2
+            c1 = scanner.nextInt();
+            c2 = scanner.nextInt();
+            
+            // Read the elements of array A
+            A = new int[size];
+            for (int i = 0; i < size; i++) {
+                if (scanner.hasNextInt()) {
+                    A[i] = scanner.nextInt();
+                }
             }
         }
-
-        scanner.close();
     }
 }
